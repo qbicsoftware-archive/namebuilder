@@ -36,7 +36,7 @@ bintray {
     publish = true
     pkg {
         repo = 'qbic-repos'
-        name = 'templatebuilder'
+        name = 'namebuilder'
         licenses = ['MIT']
         vcsUrl = "https://github.com/qbicsoftware/namebuilder"
         version {

@@ -1,0 +1,71 @@
+group 'qbic.org'
+version '0.1'
+
+buildscript {
+    repositories {
+        jcenter()
+    }
+    dependencies {
+        classpath 'com.jfrog.bintray.gradle:gradle-bintray-plugin:1.7.1'
+        //classpath "org.jfrog.buildinfo:build-info-extractor-gradle:4.4.0"
+    }
+}
+
+
+dependencies {
+    testCompile group: 'junit', name: 'junit', version: '4.11'
+}
+
+
+bintray {
+    user = bintrayUser
+    key = bintrayKey
+    publications = ['MyPublication']
+    publish = true
+    pkg {
+        repo = 'qbic-repos'
+        name = 'templatebuilder'
+        licenses = ['MIT']
+        vcsUrl = "https://github.com/qbicsoftware/namebuilder"
+        version {
+            name = 'beta'
+            desc = 'Library that offers abstract classes for building secondary names dynamically.'
+            released  = new Date()
+            vcsTag = version
+            attributes = ['gradle-plugin': 'com.use.less:com.use.less.gradle:gradle-useless-plugin']
+        }
+
+    }
+}
+
+
+task sourcesJar(type: Jar, dependsOn: classes) {
+    classifier = 'sources'
+    from sourceSets.main.allSource
+}
+
+task javadocJar(type: Jar, dependsOn: javadoc) {
+    classifier = 'javadoc'
+    from javadoc.destinationDir
+}
+
+// add javadoc/source jar tasks as artifacts
+artifacts {
+    archives sourcesJar //, javadocJar
+}
+
+publishing {
+    publications {
+        MyPublication(MavenPublication) {
+            from components.java
+            groupId 'org.qbic'
+            artifactId 'namebuilder'
+            artifact sourcesJar {
+                classifier "sources"
+            }
+            artifact javadocJar {
+                classifier "javadoc"
+            }
+        }
+    }
+}

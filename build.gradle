@@ -1,5 +1,5 @@
 group 'qbic.org'
-version '0.1_3'
+version '0.1_4'
 
 buildscript {
     repositories {

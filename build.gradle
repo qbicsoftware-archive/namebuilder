@@ -1,5 +1,5 @@
 group 'qbic.org'
-version '0.1_1'
+version '0.1_2'
 
 buildscript {
     repositories {
@@ -53,7 +53,14 @@ bintray {
 
 task sourcesJar(type: Jar, dependsOn: classes) {
     classifier = 'sources'
-    from sourceSets.main.allSource
+    //from sourceSets.main.allSource
+    sourceSets {
+        main {
+            java {
+                exclude 'Main'
+            }
+        }
+    }
 }
 
 task javadocJar(type: Jar, dependsOn: javadoc) {

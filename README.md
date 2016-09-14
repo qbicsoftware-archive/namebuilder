@@ -24,6 +24,7 @@ myName.toString();
 which would result in a secondary name like ```Patient:1```.
 
 A more complex secondary name could include aliquots and timepoints. The code would then look like this:
+
 ```java
 
 SecondaryName myName = new SecondaryName();

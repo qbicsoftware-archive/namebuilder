@@ -1,5 +1,5 @@
 group 'qbic.org'
-version '0.1_2'
+version '0.1_3'
 
 buildscript {
     repositories {
@@ -57,7 +57,7 @@ task sourcesJar(type: Jar, dependsOn: classes) {
     sourceSets {
         main {
             java {
-                exclude 'Main'
+                exclude 'main/java/Main'
             }
         }
     }

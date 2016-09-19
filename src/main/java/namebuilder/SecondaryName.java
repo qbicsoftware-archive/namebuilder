@@ -209,4 +209,32 @@ public class SecondaryName {
         sampleName.deleteCharAt(sampleName.length()-1);
         return sampleName.toString();
     }
+
+    /**
+     * Short version of the secondary name:
+     * [entityID]:[entityNumber]
+     * @return The ready formatted String
+     */
+    public String toEntityString() {
+        StringBuilder sampleName = new StringBuilder();
+        sampleName.append(this.entityID).append(':').append(this.entityCounter);
+        return sampleName.toString();
+    }
+
+
+    /**
+     * Short version of the secondary name:
+     * [entityID]:[entityNumber]:[timepoint]:[tissue]:[aliquot]
+     * @return The ready formatted String
+     */
+    public String toSampleString() {
+        StringBuilder sampleName = new StringBuilder();
+        sampleName.append(toEntityString()).append(':').append(this.getCurrentTimePoint()).append(':')
+            .append(this.tissue).append(':').append(this.getSampleAliquot());
+        return sampleName.toString();
+    }
+
+
+
+
 }

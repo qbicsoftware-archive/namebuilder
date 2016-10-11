@@ -229,8 +229,13 @@ public class SecondaryName {
      */
     public String toSampleString() {
         StringBuilder sampleName = new StringBuilder();
-        sampleName.append(toEntityString()).append(':').append(this.getCurrentTimePoint()).append(':')
-            .append(this.tissue).append(':').append(this.getSampleAliquot());
+        try{
+            sampleName.append(toEntityString()).append(':').append(this.getCurrentTimePoint()).append(':')
+                    .append(this.tissue).append(':').append(this.getSampleAliquot());
+        } catch (Exception e){
+            sampleName.append(toEntityString()).append(':').append(this.getCurrentTimePoint()).append(':')
+                    .append(this.tissue);
+        }
         return sampleName.toString();
     }
 

@@ -203,7 +203,7 @@ public class SecondaryName {
                 }
 
             } catch(Exception e){
-                e.printStackTrace();
+                continue;
             }
         }
         sampleName.deleteCharAt(sampleName.length()-1);

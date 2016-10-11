@@ -12,7 +12,6 @@ public class Main {
         myName.setEntityCounter(1);
         myName.setTimepoints(new String[]{"0","1","2"});
         myName.setTissue("S");
-        myName.setSampleAliquot(1);
         myName.setExtractType("D");
         myName.setExtractAliquot(1);
         System.out.println(myName.toString());

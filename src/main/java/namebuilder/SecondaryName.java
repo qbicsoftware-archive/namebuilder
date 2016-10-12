@@ -233,6 +233,7 @@ public class SecondaryName {
             sampleName.append(toEntityString()).append(':').append(this.getCurrentTimePoint()).append(':')
                     .append(this.tissue).append(':').append(this.getSampleAliquot());
         } catch (Exception e){
+            sampleName = new StringBuilder();
             sampleName.append(toEntityString()).append(':').append(this.getCurrentTimePoint()).append(':')
                     .append(this.tissue);
         }

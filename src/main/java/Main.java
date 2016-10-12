@@ -14,6 +14,7 @@ public class Main {
         myName.setTissue("S");
         myName.setExtractType("D");
         myName.setExtractAliquot(1);
-        System.out.println(myName.toString());
+        //System.out.println(myName.toString());
+        System.out.println(myName.toSampleString());
     }
 }
